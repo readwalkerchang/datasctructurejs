@@ -5,30 +5,32 @@ function ListNode(element) {
 }
 
 
-function LinkedList(head=null) {
+function LinkedList(head = null) {
     this.head = head;
-    this.length = 0;
+    this.size = 0;
 }
 
-LinkedList.prototype.append = function(element){
-        const nextNode = new ListNode(element);
-        let current;
-        if(this.head === null){
-            this.head = nextNode;
+LinkedList.prototype.add = function(element){
+    let node = new ListNode(element);
+    let current;
+    
+    if(this.head == null){
+        this.head = node;
+    }
+    else{
+        current = this.head;
+        while(current.next ){
+            current = current.next;
         }
-        else{
-            current = this.head;
-            while (this.current != null){
-                current = current.next
-            }
-            this.current.next = this.nextNode;
-        }
+        current.next = node;
+    }
+    this.size++;
+};
 
-        this.length++;
-    };
-
+//test code
 let list = new LinkedList();
-list.append(15);
-list.append(10);
+list.add(10);
+list.add(15);
+
 console.log(list);
 
